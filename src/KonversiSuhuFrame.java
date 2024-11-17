@@ -102,7 +102,12 @@ public class KonversiSuhuFrame extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel3.setText("Hasil");
 
-        skalaSuhuAsal.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Celcius", "Fahrenheit", "Kelvin", "Reamur" }));
+        skalaSuhuAsal.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Celsius", "Fahrenheit", "Kelvin", "Reamur" }));
+        skalaSuhuAsal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                skalaSuhuAsalActionPerformed(evt);
+            }
+        });
 
         jLabel6.setText("Skala Suhu Asal");
 
@@ -115,7 +120,7 @@ public class KonversiSuhuFrame extends javax.swing.JFrame {
             }
         });
 
-        skalaSuhuTujuan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Celcius", "Fahrenheit", "Kelvin", "Reamur" }));
+        skalaSuhuTujuan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Celsius", "Fahrenheit", "Kelvin", "Reamur" }));
         skalaSuhuTujuan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 skalaSuhuTujuanActionPerformed(evt);
@@ -176,7 +181,6 @@ public class KonversiSuhuFrame extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(32, 32, 32)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -210,6 +214,10 @@ public class KonversiSuhuFrame extends javax.swing.JFrame {
                         .addComponent(rbToReamur, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(153, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -261,11 +269,12 @@ public class KonversiSuhuFrame extends javax.swing.JFrame {
 
     private void konversiButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_konversiButtonActionPerformed
        konversiButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                konversiSuhu();
-            }
-        }); 
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        konversiSuhu(); // Memanggil metode konversi suhu saat tombol diklik
+    }
+    });
+
     }//GEN-LAST:event_konversiButtonActionPerformed
 
     private void inputSuhuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputSuhuActionPerformed
@@ -299,7 +308,7 @@ public class KonversiSuhuFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_inputSuhuActionPerformed
 
     private void skalaSuhuTujuanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_skalaSuhuTujuanActionPerformed
-        // TODO add your handling code here:
+        konversiSuhu();        // TODO add your handling code here:
     }//GEN-LAST:event_skalaSuhuTujuanActionPerformed
 
     private void rbToCelciusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbToCelciusActionPerformed
@@ -345,6 +354,10 @@ public class KonversiSuhuFrame extends javax.swing.JFrame {
     }
 });        // TODO add your handling code here:
     }//GEN-LAST:event_rbToReamurActionPerformed
+
+    private void skalaSuhuAsalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_skalaSuhuAsalActionPerformed
+        konversiSuhu();     // TODO add your handling code here:
+    }//GEN-LAST:event_skalaSuhuAsalActionPerformed
  
 
 
@@ -408,37 +421,52 @@ public class KonversiSuhuFrame extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> skalaSuhuTujuan;
     // End of variables declaration//GEN-END:variables
 private void konversiSuhu() {
-        try {
-            double suhu = Double.parseDouble(inputSuhu.getText());
-            String skalaAsal = (String) skalaSuhuAsal.getSelectedItem();
-            String skalaTujuan = (String) skalaSuhuTujuan.getSelectedItem();
-            
-            double hasil = 0;
-            
-            // Konversi ke Celsius terlebih dahulu
-            if (skalaAsal.equals("Fahrenheit")) {
-                suhu = (suhu - 32) * 5/9;
-            } else if (skalaAsal.equals("Kelvin")) {
-                suhu = suhu - 273.15;
-            } else if (skalaAsal.equals("Reamur")) {
-                suhu = suhu * 5/4;
-            }
-            
-            // Konversi dari Celsius ke skala tujuan
-            if (skalaTujuan.equals("Celsius")) {
-                hasil = suhu;
-            } else if (skalaTujuan.equals("Fahrenheit")) {
-                hasil = (suhu * 9/5) + 32;
-            } else if (skalaTujuan.equals("Kelvin")) {
-                hasil = suhu + 273.15;
-            } else if (skalaTujuan.equals("Reamur")) {
-                hasil = suhu * 4/5;
-            }
-            
-            hasilLabel.setText(String.format(" %.2f %s", hasil, skalaTujuan));
-        } catch (NumberFormatException ex) {
-            hasilLabel.setText("Input tidak valid");
+       try {
+        // Cek apakah input suhu valid
+        String input = inputSuhu.getText().trim();
+        if (input.isEmpty()) {
+            hasilLabel.setText("Input suhu kosong");
+            return;
         }
+
+        double suhu = Double.parseDouble(input);
+        String skalaAsal = (String) skalaSuhuAsal.getSelectedItem();
+        String skalaTujuan = (String) skalaSuhuTujuan.getSelectedItem();
+
+        // Pastikan skala suhu asal dan tujuan dipilih
+        if (skalaAsal == null || skalaTujuan == null) {
+            hasilLabel.setText("Skala suhu belum dipilih");
+            return;
+        }
+
+        double hasil = 0;
+
+        // Konversi ke Celsius terlebih dahulu
+        if (skalaAsal.equals("Fahrenheit")) {
+            suhu = (suhu - 32) * 5/9;
+        } else if (skalaAsal.equals("Kelvin")) {
+            suhu = suhu - 273.15;
+        } else if (skalaAsal.equals("Reamur")) {
+            suhu = suhu * 5/4;
+        }
+
+        // Konversi dari Celsius ke skala tujuan
+        if (skalaTujuan.equals("Celsius")) {
+            hasil = suhu;
+        } else if (skalaTujuan.equals("Fahrenheit")) {
+            hasil = (suhu * 9/5) + 32;
+        } else if (skalaTujuan.equals("Kelvin")) {
+            hasil = suhu + 273.15;
+        } else if (skalaTujuan.equals("Reamur")) {
+            hasil = suhu * 4/5;
+        }
+
+        // Tampilkan hasil konversi
+        hasilLabel.setText(String.format("%.2f %s", hasil, skalaTujuan));
+    } catch (NumberFormatException ex) {
+        // Menangani input yang tidak valid
+        hasilLabel.setText("Input tidak valid");
+    }
     }
 
 private void konversiSuhuOtomatis() {
