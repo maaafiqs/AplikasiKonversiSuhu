@@ -68,22 +68,22 @@
                       <Component id="jPanel3" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="1" attributes="0">
-                              <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                                  <Component id="skalaSuhuAsal" min="-2" pref="263" max="-2" attributes="0"/>
-                                  <Group type="102" attributes="0">
-                                      <Group type="103" groupAlignment="1" attributes="0">
-                                          <Component id="jLabel2" min="-2" pref="95" max="-2" attributes="0"/>
-                                          <Component id="jLabel6" min="-2" pref="95" max="-2" attributes="0"/>
-                                          <Component id="jLabel7" min="-2" pref="95" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Component id="jLabel2" min="-2" pref="95" max="-2" attributes="0"/>
+                                      <Component id="jLabel6" min="-2" pref="95" max="-2" attributes="0"/>
+                                      <Component id="jLabel7" min="-2" pref="95" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
+                                          <Component id="skalaSuhuTujuan" min="-2" pref="263" max="-2" attributes="0"/>
                                       </Group>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" attributes="0">
-                                              <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
-                                              <Component id="skalaSuhuTujuan" min="-2" pref="263" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="1" attributes="0">
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="inputSuhu" min="-2" pref="263" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="inputSuhu" alignment="1" min="-2" pref="263" max="-2" attributes="0"/>
+                                              <Component id="skalaSuhuAsal" alignment="1" min="-2" pref="263" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                   </Group>
@@ -213,11 +213,12 @@
         <Component class="javax.swing.JComboBox" name="skalaSuhuAsal">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="4">
-                <StringItem index="0" value="Celsius"/>
-                <StringItem index="1" value="Fahrenheit"/>
-                <StringItem index="2" value="Kelvin"/>
-                <StringItem index="3" value="Reamur"/>
+              <StringArray count="5">
+                <StringItem index="0" value="Masukkan Suhu..."/>
+                <StringItem index="1" value="Celsius"/>
+                <StringItem index="2" value="Fahrenheit"/>
+                <StringItem index="3" value="Kelvin"/>
+                <StringItem index="4" value="Reamur"/>
               </StringArray>
             </Property>
           </Properties>
@@ -249,11 +250,12 @@
         <Component class="javax.swing.JComboBox" name="skalaSuhuTujuan">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="4">
-                <StringItem index="0" value="Celsius"/>
-                <StringItem index="1" value="Fahrenheit"/>
-                <StringItem index="2" value="Kelvin"/>
-                <StringItem index="3" value="Reamur"/>
+              <StringArray count="5">
+                <StringItem index="0" value="Masukkan Suhu..."/>
+                <StringItem index="1" value="Celsius"/>
+                <StringItem index="2" value="Fahrenheit"/>
+                <StringItem index="3" value="Kelvin"/>
+                <StringItem index="4" value="Reamur"/>
               </StringArray>
             </Property>
           </Properties>
