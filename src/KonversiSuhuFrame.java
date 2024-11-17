@@ -283,7 +283,7 @@ public class KonversiSuhuFrame extends javax.swing.JFrame {
             public void keyTyped(KeyEvent e) {
                 char c = e.getKeyChar();
                 if (!((c >= '0' && c <= '9') || c == '.' || c == '-')) {
-                    e.consume();
+                    e.consume(); //keylistener hanya untuk menerima inputan angka
                 }
             }
         });
