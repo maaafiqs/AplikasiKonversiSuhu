@@ -317,7 +317,7 @@ public class KonversiSuhuFrame extends javax.swing.JFrame {
     public void itemStateChanged(java.awt.event.ItemEvent evt) {
         if (rbToCelcius.isSelected()) {
             labelSkala.setText("Konversi: Fahrenheit ke Celsius");
-            konversiSuhuOtomatis(); // Panggil metode konversi otomatis
+            konversiSuhuOtomatis(); // Panggil konversi otomatis
         }
     }
 });        // TODO add your handling code here:
