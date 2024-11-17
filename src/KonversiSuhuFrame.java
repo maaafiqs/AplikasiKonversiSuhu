@@ -166,8 +166,8 @@ public class KonversiSuhuFrame extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(labelSkala, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addComponent(labelSkala, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -316,7 +316,7 @@ public class KonversiSuhuFrame extends javax.swing.JFrame {
         rbToCelcius.addItemListener(new java.awt.event.ItemListener() {
     public void itemStateChanged(java.awt.event.ItemEvent evt) {
         if (rbToCelcius.isSelected()) {
-            labelSkala.setText("Konversi: Fahrenheit ke Celsius");
+            labelSkala.setText("Konversi Suhu: Fahrenheit ke Celsius");
             konversiSuhuOtomatis(); // Panggil konversi otomatis
         }
     }
